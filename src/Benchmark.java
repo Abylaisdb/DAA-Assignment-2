@@ -1,6 +1,7 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Locale;
 import java.util.Random;
 
 public class Benchmark {
@@ -65,7 +66,7 @@ public class Benchmark {
                     for (int idx : indices) arr.get(idx);
                     totalNs += System.nanoTime() - start;
                 }
-                w.printf("Array,%d,%.1f,%d,%d%n", n, totalNs / (double) REPEATS,
+                w.printf(Locale.US, "Array,%d,%.1f,%d,%d%n", n, totalNs / (double) REPEATS,
                         arr.metrics.accesses, indices.length);
 
                 MyLinkedList list = buildList(initial);
@@ -76,7 +77,7 @@ public class Benchmark {
                     for (int idx : indices) list.get(idx);
                     totalNs += System.nanoTime() - start;
                 }
-                w.printf("List,%d,%.1f,%d,%d%n", n, totalNs / (double) REPEATS,
+                w.printf(Locale.US, "List,%d,%.1f,%d,%d%n", n, totalNs / (double) REPEATS,
                         list.metrics.accesses + list.metrics.moves, indices.length);
 
                 System.out.println("  n=" + n + " done");
@@ -107,7 +108,7 @@ public class Benchmark {
                     for (int q : queries) arr.contains(q);
                     totalNs += System.nanoTime() - start;
                 }
-                w.printf("Array,%d,%.1f,%d,%d%n", n, totalNs / (double) REPEATS,
+                w.printf(Locale.US, "Array,%d,%.1f,%d,%d%n", n, totalNs / (double) REPEATS,
                         arr.metrics.comparisons, queries.length);
 
                 MyLinkedList list = buildList(initial);
@@ -118,7 +119,7 @@ public class Benchmark {
                     for (int q : queries) list.contains(q);
                     totalNs += System.nanoTime() - start;
                 }
-                w.printf("List,%d,%.1f,%d,%d%n", n, totalNs / (double) REPEATS,
+                w.printf(Locale.US, "List,%d,%.1f,%d,%d%n", n, totalNs / (double) REPEATS,
                         list.metrics.comparisons, queries.length);
 
                 System.out.println("  n=" + n + " done");
@@ -162,7 +163,7 @@ public class Benchmark {
                                 insMoves = l.metrics.moves;
                             }
                         }
-                        w.printf("%s,%d,insert,%s,%.1f,%d,%d%n", structure, n, position,
+                        w.printf(Locale.US, "%s,%d,insert,%s,%.1f,%d,%d%n", structure, n, position,
                                 insTotalNs / (double) REPEATS, insMoves, insertValues.length);
 
                         long remTotalNs = 0;
@@ -191,7 +192,7 @@ public class Benchmark {
                                 remMoves = l.metrics.moves;
                             }
                         }
-                        w.printf("%s,%d,remove,%s,%.1f,%d,%d%n", structure, n, position,
+                        w.printf(Locale.US, "%s,%d,remove,%s,%.1f,%d,%d%n", structure, n, position,
                                 remTotalNs / (double) REPEATS, remMoves, removals);
                     }
                 }
@@ -233,9 +234,9 @@ public class Benchmark {
                     if (!ok) nonDecreasing = false;
                 }
 
-                w.printf("%d,insert,%.1f,%d,%s%n", n, insertTotalNs / (double) REPEATS,
+                w.printf(Locale.US, "%d,insert,%.1f,%d,%s%n", n, insertTotalNs / (double) REPEATS,
                         insertComparisons, "n/a");
-                w.printf("%d,extractMin,%.1f,%d,%s%n", n, extractTotalNs / (double) REPEATS,
+                w.printf(Locale.US, "%d,extractMin,%.1f,%d,%s%n", n, extractTotalNs / (double) REPEATS,
                         extractComparisons, nonDecreasing);
 
                 System.out.println("  n=" + n + " done");

@@ -1,9 +1,9 @@
 n,phase,avg_time_ns,total_comparisons,non_decreasing_verified
-100,insert,17040,0,194,n/a
-100,extractMin,76560,0,841,true
-1000,insert,34620,0,2232,n/a
-1000,extractMin,105240,0,14994,true
-10000,insert,299580,0,22593,n/a
-10000,extractMin,759700,0,216736,true
-100000,insert,1253160,0,227662,n/a
-100000,extractMin,7893000,0,2831463,true
+100,insert,17280.0,194,n/a
+100,extractMin,46720.0,841,true
+1000,insert,37040.0,2232,n/a
+1000,extractMin,103300.0,14994,true
+10000,insert,308500.0,22593,n/a
+10000,extractMin,842480.0,216736,true
+100000,insert,1315560.0,227662,n/a
+100000,extractMin,8204380.0,2831463,true
